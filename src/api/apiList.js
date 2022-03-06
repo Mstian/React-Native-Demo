@@ -1,6 +1,6 @@
-import {get} from './index';
+import {get, post} from './index';
 import CONSTANT from './const';
 const {test} = CONSTANT;
 export function testApi (params) {
-    return get(test.api, params);
+    return post(test.api, params);
 }

@@ -17,6 +17,23 @@ export function get(api, params) {
 }
 
 
+export function post(api, params) {
+
+    let data = params instanceof FormData ? params : JSON.stringify(params);
+
+    let contentType = params instanceof FormData ? 'multipart/form-data' : 'application/json';
+
+    return dealWithResult(fetch(dealWithParams(url + api), {
+        headers: {
+            'content-type': contentType,
+            ...headers,
+        },
+        method: 'POST',
+        body: data,
+    }));
+}
+
+
 /**
  * 处理fetch返回数据
  * @param {Promise} doAction
@@ -30,7 +47,17 @@ function dealWithResult (doAction) {
            }
            return res.text();
         }).then((result) => {
-            resolve(result);
+            if (typeof result === 'string') {
+                throw new Error(result);
+            }
+
+            const {code, msg, data} = result;
+
+            if (code === 401) {
+                // todo: 未登录状态处理 - 跳转首页 唤起登录等
+                return;
+            }
+            resolve({result: data, resp: result});
         }).catch((err) => {
             reject(err);
         });

@@ -16,10 +16,11 @@ export default (props) => {
         // }).catch((e) => {
         //     console.log(e.toString());
         // });
-        testApi({
-            requestPrams: 'rn',
-        }).then((res) => {
-            console.log(res, '这是接口返回的数据啊');
+
+        let formData = new FormData();
+        formData.append('requestPrams', 'rn');
+        testApi(formData).then(({ result, resp }) => {
+            console.log(result, resp, '这是接口返回的数据啊aa');
         });
         // AsyncStorage
     };
