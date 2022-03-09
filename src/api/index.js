@@ -23,6 +23,7 @@ export function post(api, params) {
 
     let contentType = params instanceof FormData ? 'multipart/form-data' : 'application/json';
 
+    console.log(data, 'postdata');
     return dealWithResult(fetch(dealWithParams(url + api), {
         headers: {
             'content-type': contentType,
