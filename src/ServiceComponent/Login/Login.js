@@ -21,6 +21,20 @@ export const Tips = (props) => {
        }}/>  
     );
 }
+
+export const NavBar = (props) => {
+    const {title, subTitle} = props;
+    return (
+        <View style={styles.navWrapper}>
+            <View/>
+            <View style={styles.middleWrap}>
+               <Text style={styles.navTitle}>{title}</Text>
+            </View>
+            <Text style={styles.navSubTitle}>{subTitle}</Text>
+        </View>
+    );
+}
+
 const styles = StyleSheet.create({
     confirmButton: {
         margin: 20,
@@ -35,5 +49,29 @@ const styles = StyleSheet.create({
     },
     tips: {
         alignItems: 'center'
+    },
+    navWrapper: {
+        flexDirection: 'row',
+        alignItems:'center',
+        justifyContent: 'space-between',
+        height: 44
+    },
+    middleWrap: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        left: 40,
+        right: 40,
+        top: 0,
+        bottom: 0
+    },
+    navTitle: {
+        fontSize: 20,
+        color: '#000'
+    },
+    navSubTitle: {
+        fontSize: 14,
+        color: '#007aff',
+        paddingRight: 10,
     }
 });

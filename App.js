@@ -37,7 +37,7 @@ const App = () =>  {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView style={{flex: 1}}>
       <ScrollView>
         <LoginPage />
         {/* <TestFetch /> */}
