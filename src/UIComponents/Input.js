@@ -6,7 +6,6 @@ export default (props) => {
         <View style={styles.root}>
             <View style={styles.row}>
                 <Text style={styles.label}>{label}</Text>
-          
                 <TextInput
                     style={styles.input}
                     placeholder={placeholder}
@@ -28,7 +27,6 @@ export default (props) => {
 const styles = StyleSheet.create({
     root: {
         flex: 1,
-  
     },
     label: {
         width: 90,

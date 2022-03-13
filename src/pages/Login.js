@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import Input from "../UIComponents/Input";
+import {ConfirmButton, Tips} from "../ServiceComponent/Login/Login"
 const LoginPage = (props) => {
 
     const [username, setUserName] = useState('');
@@ -24,6 +25,13 @@ const LoginPage = (props) => {
                 setPassWord(password);
             }}
           ></Input>
+          <ConfirmButton 
+            title="登录" 
+            onClick={() => {
+              console.log('login');
+            }}>
+          </ConfirmButton>
+          <Tips helpUrl={'https://www.baidu.com'}></Tips>
         </View>
     );
 };
