@@ -1,5 +1,6 @@
 // import {post} from '../api/index';
 import {loginApi} from '../api/apiList';
+import {saveBoarding} from './TokenUtiles';
 export default class LoginUtils {
     constructor(){
         this.instance;
@@ -19,6 +20,7 @@ export default class LoginUtils {
             loginApi(params).then(({result, resp}) => {
                 const {code, data, msg} = resp;
                 if (code === 0) {
+                    saveBoarding(data);
                     resolve(resp);
                 } else {
                     reject(resp);

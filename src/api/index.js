@@ -1,5 +1,5 @@
 import CONSTANT from './const';
-
+import {getBoading} from '../utils/TokenUtiles';
 let {headers, url} = CONSTANT;
 /**
  * 数据请求get方法
@@ -7,27 +7,36 @@ let {headers, url} = CONSTANT;
  * @param {*} params
  * @returns
  */
-export function get(api, params) {
-    console.log(api, params, '----');
+export async function get(api, params) {
+    let boarding;
+    try {
+        boarding = await getBoading();
+    } catch (error) {
+        console.log('获取本地token失败');
+    }
     return dealWithResult(fetch(dealWithParams(url + api, params), {
         headers: {
             ...headers,
+            "boarding-pass": boarding || ''
         },
     }));
 }
 
 
-export function post(api, params) {
-
+export async function post(api, params) {
     let data = params instanceof FormData ? params : JSON.stringify(params);
-
     let contentType = params instanceof FormData ? 'multipart/form-data' : 'application/json';
-
-    console.log(data, 'postdata');
+    let boarding;
+    try {
+        boarding = await getBoading();
+    } catch (error) {
+        console.log('获取本地token失败');
+    }
     return dealWithResult(fetch(dealWithParams(url + api), {
         headers: {
             'content-type': contentType,
             ...headers,
+            "boarding-pass": boarding || ''
         },
         method: 'POST',
         body: data,
