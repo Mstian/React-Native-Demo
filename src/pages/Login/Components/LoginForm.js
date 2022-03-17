@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, SafeAreaView } from 'react-native';
-import Input from "../UIComponents/Input";
-import {ConfirmButton, Tips, NavBar} from "../ServiceComponent/Login/Login";
-import LoginUtils from '../utils/LoginUtiles';
-const LoginPage = (props) => {
-
-    const [username, setUserName] = useState('');
-    const [password, setPassWord] = useState('');
-    const [msg, setMsg] = useState('');
+import { View, StyleSheet, Text } from 'react-native';
+import LoginUtils from '../../../utils/LoginUtiles';
+import {ConfirmButton} from "../../../ServiceComponent/Login/Login";
+import Input from "../../../UIComponents/Input";
+export default (props) => {
+  const [username, setUserName] = useState('');
+  const [password, setPassWord] = useState('');
+  const {setMsg} = props;
     return (
-        <SafeAreaView style={styles.root}>
-          <NavBar title={'登录'} subTitle={'注册'}></NavBar> 
+        <View style={styles.root}>
           <Input
             label={'用户名'}
             placeholder={'请输入用户名'}
@@ -37,7 +35,6 @@ const LoginPage = (props) => {
               }
               setMsg('');
               LoginUtils.getInstance().login(username, password).then((res) => {
-                console.log(res, '123');
                 setMsg('登录成功');
               }).catch((e) => {
                 const {msg="登录失败"} = e;
@@ -45,21 +42,11 @@ const LoginPage = (props) => {
               })
             }}>
           </ConfirmButton>
-          <Tips msg={msg} helpUrl={'https://www.baidu.com'}></Tips>
-          <Text style={styles.msg}>{msg}</Text>
-        </SafeAreaView>
+        </View>
     );
-};
-
+}
 const styles = StyleSheet.create({
     root: {
         flex: 1,
-        backgroundColor: '#fff'
-    },
-    msg: {
-      textAlign: 'center',
-      paddingTop: 20,
-      color: 'red'
     }
 });
-export default LoginPage;

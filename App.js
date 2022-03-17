@@ -19,7 +19,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-import LoginPage from './src/pages/Login.js';
+import LoginPage from './src/pages/Login/Login.js';
 
 import {
   Colors,

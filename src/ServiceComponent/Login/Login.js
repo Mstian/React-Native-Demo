@@ -23,14 +23,16 @@ export const Tips = (props) => {
 }
 
 export const NavBar = (props) => {
-    const {title, subTitle} = props;
+    const {title, subTitle, subPress} = props;
     return (
         <View style={styles.navWrapper}>
             <View/>
             <View style={styles.middleWrap}>
                <Text style={styles.navTitle}>{title}</Text>
             </View>
-            <Text style={styles.navSubTitle}>{subTitle}</Text>
+            <TouchableOpacity onPress={subPress}>
+                <Text style={styles.navSubTitle}>{subTitle}</Text>
+            </TouchableOpacity>
         </View>
     );
 }
