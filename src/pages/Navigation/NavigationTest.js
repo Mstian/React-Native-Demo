@@ -51,18 +51,18 @@ function MainScreen() {
                 options={{
                     tabBarLabel: '最热',
                     headerShown: 'false',
-                    tabBarIcon: ({color, focused}) => (
+                    tabBarIcon: ({color, focused}) => {
                         <MaterialIcons name={'whatshot'} size={26} style={{color: color}}/>
-                    )
+                    }
                 }}
             />
             <Tab.Screen name='trending' component={TrendingScreen}
                 options={{
                     tabBarLabel: '趋势',
                     headerShown: 'false',
-                    tabBarIcon: ({color, focused}) => (
-                        <Ionicons name={'md-trending-up'} size={26} style={{color: color}}></Ionicons>
-                    )
+                    tabBarIcon: ({color, focused}) => {
+                        <Ionicons name={'md-trending-up'} size={26} style={{color: color}}/>
+                    }
                 }}
             />
         </Tab.Navigator>
@@ -90,8 +90,8 @@ export default (props) => {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name='index' component={WelcomePage}/>
-                <Stack.Screen name='main' component={MainScreen}/>
+                <Stack.Screen name='index' component={WelcomePage} options={{headerShown: false}}/>
+                <Stack.Screen name='main' component={MainScreen} options={{headerShown: false}}/>
             </Stack.Navigator>
         </NavigationContainer>
     );

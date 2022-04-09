@@ -36,9 +36,12 @@ export default (props) => {
               setMsg('');
               LoginUtils.getInstance().login(username, password).then((res) => {
                 setMsg('登录成功');
+                props.handleloginCB && props.handleloginCB(true);
               }).catch((e) => {
+                console.log(e, '登录失败了吗？？？？？');
                 const {msg="登录失败"} = e;
                 setMsg(msg);
+                props.handleloginCB && props.handleloginCB(false);
               })
             }}>
           </ConfirmButton>
@@ -47,6 +50,7 @@ export default (props) => {
 }
 const styles = StyleSheet.create({
     root: {
-        flex: 1,
+        // flex: 1,
+        // height: 400
     }
 });

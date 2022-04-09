@@ -26,7 +26,7 @@ export default (props) => {
 };
 const styles = StyleSheet.create({
     root: {
-        flex: 1,
+        // flex: 1,
     },
     label: {
         width: 90,

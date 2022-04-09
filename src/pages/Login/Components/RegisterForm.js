@@ -82,6 +82,7 @@ export default (props) => {
                 setMsg('');
                 registerApi(params).then((result, resp) => {
                     const {code} = resp;
+                    console.log(resp, '注册信息')
                     if (code === 0) {
                         setMsg('注册成功');
                     }
@@ -95,6 +96,6 @@ export default (props) => {
 }
 const styles = StyleSheet.create({
     root: {
-        flex: 1,
+        // flex: 1,
     }
 });
