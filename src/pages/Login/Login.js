@@ -11,14 +11,12 @@ const LoginPage = (props) => {
     const [currentPage, setCurrenPage] = useState('login');
 
     const handleloginCB = (flag) => {
-
       if (!flag) {
         // 登录失败
-        NavigationUtil.resetToHomePage({navigation});
         console.log('登录失败，请稍后重试！');
         return;
       }
-      
+      NavigationUtil.resetToHomePage({navigation});
     }
 
     return (
