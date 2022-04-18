@@ -26,7 +26,7 @@ export function tabNav ({Component, keys, theme, extra={}}) {
                         <Tab.Screen 
                             key={item[0]}
                             name={item[1].navagationOptions.title}
-                            component={item[1].screen}
+                            component={item[1].Screen}
                             options={item[1].navigationOptions}
                         />
                     );
@@ -40,7 +40,7 @@ function _genTabs({Component, keys, theme, extra = {}}) {
     keys.forEach((item, index) => {
             if (item.checked) {
                 tabs[`tab${index}`] = {
-                    screen: (props) => (<Component {...props} {...extra} tabLabel={item.name} theme={theme}/>),
+                    Screen: (props) => (<Component {...props} {...extra} tabLabel={item.name} theme={theme}/>),
                     navagationOptions: {
                         title: item.name
                     }
