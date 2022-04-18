@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 import theme from './theme/index';
-// 合并reducer
+// 2. 创建并合并reducer
 const index = combineReducers({
     theme
 });

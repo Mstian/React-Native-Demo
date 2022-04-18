@@ -4,6 +4,6 @@ import reducer from './reducer/index';
 
 const middlewares = [thunk];
 
-// 创建store
+// 1. 创建store
 
 export default createStore(reducer, applyMiddleware(...middlewares));
