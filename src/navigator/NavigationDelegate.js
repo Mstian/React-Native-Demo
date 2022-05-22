@@ -3,7 +3,8 @@ import {Text, StyleSheet} from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { TabBarIndicator } from 'react-native-tab-view';
 const Tab = createMaterialTopTabNavigator();
-
+// import { connect } from 'react-redux';
+// import actions from '../action/index'
 export function tabNav ({Component, keys, theme, extra={}}) {
     return (
         <Tab.Navigator

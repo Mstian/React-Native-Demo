@@ -1,5 +1,6 @@
 import CONSTANT from './const';
 import {getBoading} from '../utils/TokenUtiles';
+import NavigationUtil from '../navigator/NavigationUtil';
 let {headers, url} = CONSTANT;
 /**
  * 数据请求get方法
@@ -65,6 +66,7 @@ function dealWithResult (doAction) {
 
             if (code === 401) {
                 // todo: 未登录状态处理 - 跳转首页 唤起登录等
+                NavigationUtil.resetToLoginPage();
                 return;
             }
             resolve({result: data, resp: result});
